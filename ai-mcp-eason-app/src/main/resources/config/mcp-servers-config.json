@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "D:\\Code\\Node\\npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "D:\\Code\\codes\\ai-mcp-eason\\ai-mcp-eason-app\\src\\main\\resources\\file-system-test",
+        "D:\\Code\\codes\\ai-mcp-eason\\ai-mcp-eason-app\\src\\main\\resources\\file-system-test"
+      ]
+    }
+  }
+}
+

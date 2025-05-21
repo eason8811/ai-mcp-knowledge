@@ -34,7 +34,7 @@ public class MCPTest {
 
     @Test
     public void testWorkFlow() {
-        String userPrompt = "帮我在 D:\\Code\\codes\\ai-mcp-eason\\ai-mcp-eason-app\\src\\main\\resources\\file-system-test 文件夹下 创建 myFile.txt 并在其中写入 '这是一份用于测试的文件'";
+        String userPrompt = "获取 Eason 的电脑配置";
 
         ChatClient chatClient = chatClientBuilder.defaultToolCallbacks(toolCallbackProvider)
                 .defaultOptions(OpenAiChatOptions.builder().model("gpt-4o").build())

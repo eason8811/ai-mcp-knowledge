@@ -15,6 +15,13 @@
         "-jar",
         "D:\\Code\\codes\\ai-mcp-eason\\ai-mcp-eason-app\\src\\main\\resources\\mcp-server\\ai-mcp-server-eason-1.0.0.jar"
       ]
+    },
+    "csdnPostServer": {
+      "command": "java",
+      "args": [
+        "-jar",
+        "D:\\Code\\codes\\ai-mcp-eason\\ai-mcp-eason-app\\src\\main\\resources\\mcp-server\\ai-mcp-post-server-1.0.0.jar"
+      ]
     }
   }
 }

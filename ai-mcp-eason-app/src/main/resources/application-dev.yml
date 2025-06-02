@@ -1,9 +1,9 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
-  main:
-    web-application-type: none
+#  main:
+#    web-application-type: none
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
@@ -13,11 +13,15 @@ spring:
   ai:
     mcp:
       client:
-        stdio:
-          servers-configuration: classpath:/config/mcp-servers-config.json
+#        stdio:
+#          servers-configuration: classpath:/config/mcp-servers-config.json
+         sse:
+           connections:
+             mcp-server-heat-point-analyse:
+               url: http://127.0.0.1:8082
     openai:
       base-url: https://apis.itedus.cn/
-      api-key: sk-uzZbT47vkgNoi5tH9dE50731Bc034c55A97136D462693c55
+      api-key: sk-NcnnjuqtUfwFqmGZ2eAb2a4cCcD947D9B222De1d931f4b15
       embedding-model: text-embedding-ada-002
       embedding:
         options:

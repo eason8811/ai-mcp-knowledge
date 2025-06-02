@@ -6,7 +6,7 @@
     <parent>
         <groupId>xin.eason</groupId>
         <artifactId>ai-mcp-eason</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>ai-mcp-eason-app</artifactId>
@@ -83,10 +83,11 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 触发器层 -->
         <dependency>
             <groupId>xin.eason</groupId>
-            <artifactId>ai-mcp-eason</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <artifactId>ai-mcp-eason-trigger</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 

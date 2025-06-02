@@ -92,7 +92,7 @@
     </dependencies>
 
     <build>
-        <finalName>ai-mcp-knowledge-app</finalName>
+        <finalName>ai-mcp-client-eason</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

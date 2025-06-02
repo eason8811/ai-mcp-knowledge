@@ -12,6 +12,6 @@ ENV TZ=PRC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # 添加应用
-ADD jdk/ai-mcp-knowledge-app.jar /ai-mcp-knowledge-app.jar
+ADD jar/ai-mcp-client-eason.jar /ai-mcp-client-eason.jar
 
-ENTRYPOINT ["sh","-c","java -jar $JAVA_OPTS /ai-mcp-knowledge-app.jar $PARAMS"]
+ENTRYPOINT ["sh","-c","java -jar $JAVA_OPTS /ai-mcp-client-eason.jar $PARAMS"]

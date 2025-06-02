@@ -27,4 +27,9 @@ public class OpenAiConfigProperties {
      * 嵌入模型
      */
     private String embeddingModel;
+
+    /**
+     * 对话模型
+     */
+    private String chattingModel;
 }

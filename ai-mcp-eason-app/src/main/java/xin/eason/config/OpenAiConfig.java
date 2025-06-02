@@ -99,7 +99,7 @@ public class OpenAiConfig {
     public ChatClient client(ChatClient.Builder chatClientBuilder, ToolCallbackProvider toolCallbackProvider) {
         return chatClientBuilder
                 .defaultToolCallbacks(toolCallbackProvider)
-                .defaultOptions(OpenAiChatOptions.builder().model("gpt-4o").build())
+                .defaultOptions(OpenAiChatOptions.builder().model(openAiConfigProperties.getChattingModel()).build())
                 .build();
     }
 }

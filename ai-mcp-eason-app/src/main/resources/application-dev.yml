@@ -22,6 +22,7 @@ spring:
     openai:
       base-url: https://apis.itedus.cn/
       api-key: sk-NcnnjuqtUfwFqmGZ2eAb2a4cCcD947D9B222De1d931f4b15
+      chatting-model: gpt-4o
       embedding-model: text-embedding-ada-002
       embedding:
         options:

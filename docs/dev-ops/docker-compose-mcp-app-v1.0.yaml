@@ -1,0 +1,57 @@
+version: '3.8'
+# docker compose -f docker-compose-mcp-app-v1.0.yaml up -d
+services:
+  ai-mcp-client-eason:
+    image: ai-mcp-client-eason:1.0
+    container_name: ai-mcp-client-eason
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./mcp-client-log:/mcp-client-log
+    environment:
+      - TZ=PRC
+      - SERVER_PORT=8080
+      - SPRING_AI_OPENAI_BASE_URL=https://apis.itedus.cn/
+      - SPRING_AI_OPENAI_API_KEY=sk-0SWYks5uRv203h2NEe65915622154cC981E7A706Ff1b6f27
+      - SPRING_AI_OPENAI_CHATTING_MODEL=gpt-4o
+      - SPRING_AI_RAG_EMBED=nomic-embed-text
+      - SPRING_AI_MCP_CLIENT_REQUEST_TIMEOUT=360s
+      - SPRING_AI_MCP_CLIENT_SSE_CONNECTIONS_MCP_SERVER_HEAT_POINT_ANALYSE=http://ai-mcp-heat-point-analyse:8081
+      - LOGGING_FILE_PATH=/mcp-client-log
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    depends_on:
+      - ai-mcp-heat-point-analyse
+    networks:
+      - my-network
+
+  ai-mcp-heat-point-analyse:
+    image: ai-mcp-heat-point-analyse:1.0
+    container_name: ai-mcp-heat-point-analyse
+    restart: always
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./mcp-server-log:/mcp-server-log
+    environment:
+      - TZ=PRC
+      - SERVER_PORT=8081
+      - HEAT_POINT_BASE_URL=https://weibo.com
+      - HEAT_POINT_COOKIE_STRING=UOR=www.baidu.com,open.weibo.com,www.baidu.com; SINAGLOBAL=3600856565491.366.1748323006418; ULV=1748323006423:1:1:1:3600856565491.366.1748323006418:; SCF=At_uHy0mJO7o4Y4rARVkp1NYl6BZQkDIdynz9m2DUD9zyhN9JyPInPrriDtiwXvMk-ujnBPsiEBnx7B67n5631c.; SUB=_2A25FMTxWDeRhGeFL7FMX9izPyzuIHXVmTzGerDV8PUNbmtAbLWL_kW9NfdRmYDvFpmURq9cSNLYNLqiHVeyEHtpo; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WFuh-A6BWLKAHX9hMMwGTBY5JpX5KzhUgL.FoMfS02cSoz0ehM2dJLoIpeLxK.L1KnL12-LxKML1hzL12H4; ALF=02_1750915334; WBPSESS=tSb2NYujPwtyci_D0QkldcfNXu5tpAF1YJiwqMWCwct0La2tJkoeLDN0-mNDJN2aabqpmMddaR1zb6J4gQxtBC3DJP9L8jgyaJnWrJ_5wx-PHNP6Guu7wWmB0V7W7cLB
+      - LOGGING_FILE_PATH=/mcp-server-log
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge

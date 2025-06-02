@@ -8,7 +8,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./mcp-client-log:/mcp-client-log
+      - /root/ai-mcp/Client/mcp-client-log:/mcp-client-log
     environment:
       - TZ=PRC
       - SERVER_PORT=8080
@@ -36,7 +36,7 @@ services:
     ports:
       - "8081:8081"
     volumes:
-      - ./mcp-server-log:/mcp-server-log
+      - /root/ai-mcp/Servers/mcp-server-log:/mcp-server-log
     environment:
       - TZ=PRC
       - SERVER_PORT=8081
@@ -49,6 +49,18 @@ services:
         max-size: "10m"
         max-file: "3"
 
+    networks:
+      - my-network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - /root/ai-mcp/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /root/ai-mcp/nginx/dist:/etc/nginx/html
     networks:
       - my-network
 

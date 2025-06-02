@@ -100,6 +100,9 @@
                 <includes>
                     <include>**/**</include>
                 </includes>
+                <excludes>
+                    <exclude>mcp-server/*.jar</exclude>
+                </excludes>
             </resource>
         </resources>
         <testResources>

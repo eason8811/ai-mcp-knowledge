@@ -17,7 +17,7 @@ services:
       - SPRING_AI_OPENAI_CHATTING_MODEL=gpt-4o
       - SPRING_AI_RAG_EMBED=nomic-embed-text
       - SPRING_AI_MCP_CLIENT_REQUEST_TIMEOUT=360s
-      - SPRING_AI_MCP_CLIENT_SSE_CONNECTIONS_MCP_SERVER_HEAT_POINT_ANALYSE=http://ai-mcp-heat-point-analyse:8081
+      - SPRING_AI_MCP_CLIENT_SSE_CONNECTIONS_MCP_SERVER_HEAT_POINT_ANALYSE_URL=http://ai-mcp-heat-point-analyse:8081
       - LOGGING_FILE_PATH=/mcp-client-log
     logging:
       driver: "json-file"
